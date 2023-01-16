@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Price from "./Price";
 import Rating from "./Rating";
@@ -17,7 +17,7 @@ const Book = ({ book }) => {
         if (mountedRef.current) {
           setImg(image);
         }
-      }, 300)
+      }, 200)
     };
     return () => {
       mountedRef.current = false;
@@ -31,7 +31,7 @@ const Book = ({ book }) => {
           <Link to={`/books/${book.id}`}>
             <figure className="book__img--wrapper">
               <img
-                src={img.url}
+                src={img.src}
                 alt=""
                 className="book__img"
               />
